@@ -65,8 +65,8 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gap-3 justify-content-center align-items-center">
 
                 <!-- single Item -->
-                <div class="col">
-                    <div class="card p-3" style="cursor: pointer;">
+                <div class="col" style="cursor: pointer;">
+                    <div class="card p-3" style="box-shadow: 0px 0px 5px 5px #d1d1d1;">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="mt-2">
                                 <h4 class="text-uppercase">Soup Bowl</h4>

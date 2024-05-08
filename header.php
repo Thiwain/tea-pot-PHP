@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -21,7 +24,8 @@
         <div class="collapse navbar-collapse gap-2" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto gap-2">
                 <a class="nav-link active text-light" href="index.php">Home</a>
-                <a class="nav-link active text-light" href="index.php">Cart</a>
+                <a class="nav-link active text-light" href="cart.php">Cart</a>
+                <a class="nav-link active text-light" href="account.php">Sign Up</a>
                 <!-- Profile dropdown -->
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
