@@ -77,3 +77,64 @@ $(document).ready(function () {
     $('#exampleModal').modal('show'); // Show the modal
   });
 });
+
+function signUp() {
+  // alert('Sign Up');
+  var firstName = document.getElementById('fname').value;
+  var lastName = document.getElementById('lname').value;
+  var gender = document.getElementById('gender').value;
+  var email = document.getElementById('semail').value;
+  var password = document.getElementById('spw').value;
+  var rePassword = document.getElementById('rspw').value;
+
+  // alert(firstName + ' ' + lastName + ' ' + gender + ' ' + email + ' ' + password
+  //   + ' ' + rePassword);
+
+  var formData = new FormData();
+  formData.append('fname', firstName);
+  formData.append('lname', lastName);
+  formData.append('gender', gender);
+  formData.append('email', email);
+  formData.append('password', password);
+  formData.append('repassword', rePassword);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Log In to your account')
+      } else {
+        document.getElementById('signUpWrn').className = 'text-danger';
+        document.getElementById('signUpWrn').innerHTML = xhr.responseText;
+      }
+    }
+  }
+  xhr.open('POST', 'signup_process.php', true);
+  xhr.send(formData);
+
+}
+
+function logIn() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var rememberMe = document.getElementById('rememberme').checked;
+
+  var formData = new FormData();
+  formData.append('email', email);
+  formData.append('password', password);
+  formData.append('rememberme', rememberMe);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Login successful');
+        window.location = 'index.php';
+      } else {
+        document.getElementById('signInWarn').innerHTML = xhr.responseText;
+      }
+    }
+  };
+  xhr.open('POST', 'login_process.php', true);
+  xhr.send(formData);
+}

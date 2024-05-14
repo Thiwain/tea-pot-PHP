@@ -1,9 +1,12 @@
 <?php
 
+// Start session
 session_start();
 
+// Include database connection
 require 'connection.php';
 
+// Get form data
 $firstName = $_POST['fname'];
 $lastName = $_POST['lname'];
 $genderId = $_POST['gender'];
@@ -36,14 +39,13 @@ if (empty($firstName) || empty($lastName) || empty($genderId) || empty($email) |
     echo 'Invalid email format';
 } else {
     // Check if the email already exists in the database
-    $emailCheckQuery = "SELECT * FROM user WHERE email = '$email'";
-    $result = Database::search($emailCheckQuery);
-    if ($result->num_rows > 0) {
+    $email_search = Database::search("SELECT * FROM user WHERE email = '" . $email . "'");
+
+    if ($email_search->num_rows > 0) {
         echo 'Email already exists';
     } else {
         // Insert the user data into the database
-        $insertQuery = "INSERT INTO user (email, fname, lname, password, gender_g_id, ban_sts_id) VALUES ('$email', '$firstName', '$lastName', '$password', '$genderId', 1)";
-        Database::iud($insertQuery);
+        Database::iud("INSERT INTO user (`email`, `fname`, `lname`, `password`, `gender_id`, `ban_sts_id`) VALUES ('" . $email . "', '" . $firstName . "', '" . $lastName . "', '" . $password . "', '" . $genderId . "', 1)");
         echo 'OK';
     }
 }
