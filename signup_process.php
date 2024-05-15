@@ -45,7 +45,7 @@ if (empty($firstName) || empty($lastName) || empty($genderId) || empty($email) |
         echo 'Email already exists';
     } else {
         // Insert the user data into the database
-        Database::iud("INSERT INTO user (`email`, `fname`, `lname`, `password`, `gender_id`, `ban_sts_id`) VALUES ('" . $email . "', '" . $firstName . "', '" . $lastName . "', '" . $password . "', '" . $genderId . "', 1)");
+        Database::iud("INSERT INTO user (`email`, `fname`, `lname`, `password`, `gender_id`, `ban_sts_id`, `reg_datetime`) VALUES ('" . $email . "', '" . $firstName . "', '" . $lastName . "', '" . $password . "', '" . $genderId . "', 1, NOW())");
         echo 'OK';
     }
 }
