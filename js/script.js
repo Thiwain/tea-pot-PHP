@@ -139,7 +139,8 @@ function logIn() {
   xhr.send(formData);
 }
 
-function sendEmail() {
+function sendEmail(event) {
+  event.preventDefault();
   var email = document.getElementById('fpwEmail').value;
   var formData = new FormData();
   formData.append('email', email);
@@ -148,9 +149,12 @@ function sendEmail() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       if (xhr.responseText == 'Sent') {
-        alert('Email sent');
+        // alert('Verification code sent successfully');
+        document.getElementById('fpwMoadlWrn').className = 'text-success';
+        document.getElementById('fpwMoadlWrn').innerHTML = xhr.responseText;
       } else {
-        document.getElementById('fpwWarn').innerHTML = xhr.responseText;
+        document.getElementById('fpwMoadlWrn').className = 'text-danger';
+        document.getElementById('fpwMoadlWrn').innerHTML = xhr.responseText;
       }
     }
   };

@@ -156,8 +156,8 @@
                                         <div class="col-md-10">
                                             <input type="text" class="form-control" placeholder="Email" name="email" id="fpwEmail" />
                                         </div>
-                                        <div class="col-md-2">
-                                            <button class="btn btn-primary w-100" onclick="sendEmail();">Send</button>
+                                        <div class="col-md-2 mt-2 mt-sm-2 mt-md-1">
+                                            <button class="btn btn-primary w-100" onclick="sendEmail(event);">Send</button>
                                         </div>
                                     </div>
                                 </div>
