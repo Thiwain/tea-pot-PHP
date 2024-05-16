@@ -138,3 +138,8 @@ function logIn() {
   xhr.open('POST', 'login_process.php', true);
   xhr.send(formData);
 }
+
+function sendEmail() {
+  var email = document.getElementById('fpwEmail').value;
+  
+}

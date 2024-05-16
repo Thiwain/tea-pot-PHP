@@ -30,7 +30,7 @@ session_start();
                     echo '<a class="nav-link active text-light" href="account.php">Sign Up</a>';
                 }
                 ?>
-                <!-- Profile dropdown -->
+               
 
                 <?php
                 if (isset($_SESSION['user'])) {

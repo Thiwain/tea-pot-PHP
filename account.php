@@ -152,9 +152,17 @@
                             <p class="text-danger" id="fpwMoadlWrn"></p>
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Email" required name="email" />
+                                    <div class="row flex-row align-items-center">
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" placeholder="Email" required name="email" id="fpwEmail"/>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary w-100" onclick="sendEmail();">Send</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="row mt-2">
                                 <div class="col-12">
                                     <input type="text" class="form-control" placeholder="Verification Code" required name="code" />
