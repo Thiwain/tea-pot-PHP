@@ -141,5 +141,19 @@ function logIn() {
 
 function sendEmail() {
   var email = document.getElementById('fpwEmail').value;
-  
+  var formData = new FormData();
+  formData.append('email', email);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'Sent') {
+        alert('Email sent');
+      } else {
+        document.getElementById('fpwWarn').innerHTML = xhr.responseText;
+      }
+    }
+  };
+  xhr.open('POST', 'sendVcodeProcess.php', true);
+  xhr.send(formData);
 }

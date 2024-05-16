@@ -154,7 +154,7 @@
                                 <div class="col-12">
                                     <div class="row flex-row align-items-center">
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" placeholder="Email" required name="email" id="fpwEmail"/>
+                                            <input type="text" class="form-control" placeholder="Email" name="email" id="fpwEmail" />
                                         </div>
                                         <div class="col-md-2">
                                             <button class="btn btn-primary w-100" onclick="sendEmail();">Send</button>
@@ -165,7 +165,7 @@
 
                             <div class="row mt-2">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Verification Code" required name="code" />
+                                    <input type="text" class="form-control" placeholder="Verification Code" name="code" />
                                 </div>
                             </div>
                         </div>
