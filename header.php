@@ -24,7 +24,6 @@ session_start();
         <div class="collapse navbar-collapse gap-2" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto gap-2">
                 <a class="nav-link active text-light" href="index.php">Home</a>
-                <a class="nav-link active text-light" href="cart.php">Cart</a>
                 <?php
                 if (!isset($_SESSION['user'])) {
                     // Display Sign Up link only if user is not logged in
@@ -36,6 +35,7 @@ session_start();
                 <?php
                 if (isset($_SESSION['user'])) {
                     ?>
+                    <a class="nav-link active text-light" href="cart.php">Cart</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Profile
