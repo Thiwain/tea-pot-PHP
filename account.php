@@ -165,13 +165,13 @@
 
                             <div class="row mt-2">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Verification Code" name="code" />
+                                    <input type="text" class="form-control" placeholder="Verification Code" name="code" id="fpwCode" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="fpwContinue">Continue</button>
+                        <button type="submit" class="btn btn-primary" id="fpwContinue" onclick="sendToPwReset(event);">Continue</button>
                     </div>
                 </form>
             </div>

@@ -161,3 +161,55 @@ function sendEmail(event) {
   xhr.open('POST', 'sendVcodeProcess.php', true);
   xhr.send(formData);
 }
+
+function sendToPwReset(event) {
+  event.preventDefault();
+  var email = document.getElementById('fpwEmail').value;
+  var code = document.getElementById('fpwCode').value;
+
+  var formData = new FormData();
+  formData.append('email', email);
+  formData.append('code', code);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        window.location = 'reset-password.php?email=' + email;
+      } else {
+        document.getElementById('fpwMoadlWrn').className = 'text-danger';
+        document.getElementById('fpwMoadlWrn').innerHTML = xhr.responseText;
+      }
+    }
+  };
+  xhr.open('POST', 'pwResetProcess.php', true);
+  xhr.send(formData);
+
+}
+
+function resetPw(email) {
+  var password = document.getElementById('pw').value;
+  var rePassword = document.getElementById('cpw').value;
+
+  var formData = new FormData();
+  formData.append('email', email);
+  formData.append('pw', password);
+  formData.append('rpw', rePassword);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Password reset successful, Please Login');
+        window.location = 'index.php';
+      } else {
+        document.getElementById('nPwWarn').className = 'text-danger';
+        document.getElementById('nPwWarn').innerHTML = xhr.responseText;
+      }
+
+    }
+  };
+  xhr.open('POST', 'newPwProcess.php', true);
+  xhr.send(formData);
+
+}
