@@ -244,3 +244,25 @@ function saveProfile() {
   xhr.send(formData);
 
 }
+
+function addToCartCard(id, event) {
+  event.preventDefault();
+
+  var formData = new FormData();
+  formData.append('id', id);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Product added to cart');
+        // window.location = 'cart.php';
+      } else {
+        alert(xhr.responseText);
+      }
+    }
+  }
+  xhr.open('POST', 'addToCartProcessCard.php', true);
+  xhr.send(formData);
+
+}
