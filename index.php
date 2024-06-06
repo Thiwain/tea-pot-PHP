@@ -50,6 +50,12 @@
 
         <!-- Carousel -->
 
+        <div class="row d-flex d-lg-none">
+            <div class="d-flex justify-content-center">
+                <img src="resources\carousel\0090000127-scaled.jpg" class="col-12" alt="" srcset="">
+            </div>
+        </div>
+
         <!-- Heading -->
         <br>
         <div class="row">
@@ -74,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="image">
-                                <img src="https://i.imgur.com/MGorDUi.png" class="img-fluid" alt="Soup Bowl">
+                                <img src="https://i.imgur.com/MGorDUi.png" class="img-fluid" width="150" alt="Soup Bowl">
                             </div>
                         </div>
                         <div class="row">

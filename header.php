@@ -42,7 +42,7 @@ session_start();
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                        <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="profile.php">Edit Profile</a></li>
                     </ul>
                 </div>
                 <?php

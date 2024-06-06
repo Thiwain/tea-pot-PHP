@@ -78,6 +78,10 @@ $(document).ready(function () {
   });
 });
 
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
 function signUp() {
   // alert('Sign Up');
   var firstName = document.getElementById('fname').value;
@@ -201,7 +205,7 @@ function resetPw(email) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       if (xhr.responseText == 'OK') {
         alert('Password reset successful, Please Login');
-        window.location = 'index.php';
+        window.location = 'account.php';
       } else {
         document.getElementById('nPwWarn').className = 'text-danger';
         document.getElementById('nPwWarn').innerHTML = xhr.responseText;
@@ -210,6 +214,33 @@ function resetPw(email) {
     }
   };
   xhr.open('POST', 'newPwProcess.php', true);
+  xhr.send(formData);
+
+}
+
+function saveProfile() {
+  var firstName = document.getElementById('fname').value;
+  var lastName = document.getElementById('lname').value;
+  var email = document.getElementById('email').value;
+  // alert(firstName + lastName + email);
+
+  var formData = new FormData();
+  formData.append('fname', firstName);
+  formData.append('lname', lastName);
+  formData.append('email', email);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Profile updated successfully');
+      } else {
+        alert(xhr.responseText);
+      }
+
+    }
+  }
+  xhr.open('POST', 'saveProfileProcess.php', true);
   xhr.send(formData);
 
 }
