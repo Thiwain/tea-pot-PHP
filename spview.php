@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<?php
+
+require 'connection.php';
+
+$pid = $_GET['id'];
+
+$p_details = Database::search("SELECT * FROM `product` WHERE `id` = '$pid'");
+$p_data = $p_details->fetch_assoc();
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teapot | Home</title>
+    <title>Teapot | <?php echo ($p_data['title']); ?></title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,18 +25,8 @@
 
 <body>
 
-    <?php include 'header.php';
-    require 'connection.php';
+    <?php include 'header.php'; ?>
 
-    ?>
-
-    <?php
-    $pid = $_GET['id'];
-
-    $p_details = Database::search("SELECT * FROM `product` WHERE `id` = '$pid'");
-    $p_data = $p_details->fetch_assoc();
-
-    ?>
 
     <div class="container mt-5">
         <div class="row">

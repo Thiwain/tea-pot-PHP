@@ -292,3 +292,4 @@ function addToCartSp(id, event) {
   xhr.send(formData);
 
 }
+

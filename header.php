@@ -50,9 +50,9 @@ session_start();
                 ?>
             </div>
 
-            <form class="d-flex mt-2 mb-2">
-                <input type="search" class="form-control me-2" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            <form class="d-flex mt-2 mb-2" action="searched.php" method="get">
+                <input type="search" class="form-control me-2" placeholder="Search" aria-label="Search" name="s"/>
+                <button class="btn btn-outline-success" type="submit" onclick=""><i class="fas fa-search"></i></button>
             </form>
 
         </div>
