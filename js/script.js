@@ -258,11 +258,37 @@ function addToCartCard(id, event) {
         alert('Product added to cart');
         // window.location = 'cart.php';
       } else {
-        alert(xhr.responseText);
+        window.location = 'account.php';
       }
     }
   }
   xhr.open('POST', 'addToCartProcessCard.php', true);
+  xhr.send(formData);
+
+}
+
+function addToCartSp(id, event) {
+  event.preventDefault();
+
+  var quantity = document.getElementById("quantity").value;
+
+  var formData = new FormData();
+  formData.append('id', id);
+  formData.append('qty', quantity);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == 'OK') {
+        alert('Product added to cart');
+        // window.location = 'cart.php';
+      } else {
+        alert(xhr.responseText);
+        window.location = 'account.php';
+      }
+    }
+  }
+  xhr.open('POST', 'addToCartProcessSp.php', true);
   xhr.send(formData);
 
 }

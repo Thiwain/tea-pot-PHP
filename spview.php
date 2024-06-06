@@ -40,9 +40,9 @@
                     ?>
 
                         <div class="col-6 mb-3">
-                            <img src="<?php echo($p_img_data['url']); ?>" class="img-fluid" alt="Product Image 1">
+                            <img src="<?php echo ($p_img_data['url']); ?>" class="img-fluid" alt="Product Image 1">
                         </div>
-                        
+
                     <?php
                     }
                     ?>
@@ -64,7 +64,7 @@
                             <input type="number" max="<?php echo ($p_data['qty']); ?>" class="form-control" id="quantity" name="quantity" value="1" min="1">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary mt-3" onclick="addToCartSp('<?php echo ($p_data['id']); ?>',event);">Add to Cart</button>
                 </form>
             </div>
         </div>
