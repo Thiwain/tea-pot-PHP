@@ -293,3 +293,31 @@ function addToCartSp(id, event) {
 
 }
 
+function getCheckoutInfo() {
+  // alert('Checkout');
+  var rname = document.getElementById('rname');
+  var address = document.getElementById('address');
+  var city = document.getElementById('city');
+  var phone = document.getElementById('phone');
+
+  var formData = new FormData();
+  formData.append('rname', rname.value);
+  formData.append('address', address.value);
+  formData.append('city', city.value);
+  formData.append('phone', phone.value);
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText.startsWith('OK')) {
+
+        window.location = 'card.php?id=' + xhr.responseText.substring(2);
+      } else {
+        alert(xhr.responseText);
+      }
+    }
+  }
+  xhr.open('POST', 'checkoutProcess.php', true);
+  xhr.send(formData);
+
+}
