@@ -30,10 +30,11 @@ require 'connection.php';
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php include 'sidebar.php';
+        <?php include 'sidebar.php'; ?>
+
+        <?php
         if (isset($_SESSION['au'])) {
         ?>
-
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <h1 class="mt-3 mb-3 fw-bold">Orders</h1>
@@ -44,7 +45,7 @@ require 'connection.php';
                         <!-- DataTables Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Order Table</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Product Table</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -52,44 +53,55 @@ require 'connection.php';
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Invoice No.</th>
-                                                <th>User Id</th>
-                                                <th>Receiver</th>
-                                                <th>Phone</th>
-                                                <th>Date</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th>#</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Invoice No.</th>
-                                                <th>User Id</th>
-                                                <th>Receiver</th>
-                                                <th>Phone</th>
-                                                <th>Date</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th>#</th>
                                                 <th>#</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
                                             <?php
-                                            $ors = Database::search("SELECT * FROM `invoice` ORDER BY `date` DESC");
+                                            $p_search = Database::search("SELECT * FROM `product`");
 
-                                            for ($i = 0; $i < $ors->num_rows; $i++) {
-                                                $fetchedO = $ors->fetch_assoc();
+                                            for ($i = 0; $i < $p_search->num_rows; $i++) {
+                                                $fp = $p_search->fetch_assoc();
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $i; ?></td>
-                                                    <td><?php echo $fetchedO['id'] ?></td>
-                                                    <td><?php echo $fetchedO['user_id'] ?></td>
-                                                    <td><?php echo $fetchedO['reciver_name'] ?></td>
-                                                    <td><?php echo $fetchedO['phone'] ?></td>
-                                                    <td><?php echo $fetchedO['date'] ?></td>
-                                                    <td><a href="invoice.php?id=<?php echo $fetchedO['id'] ?>" class="btn btn-primary">For More</a></td>
+
+                                                    <form action="updateProductProcess.php" method="post">
+                                                        <td><?php echo $fp['id'] ?><input hidden type="text" name="ids" class="form-control" value="<?php echo $fp['id'] ?>" /></td>
+                                                        <td><input type="text" class="form-control" value="<?php echo $fp['title'] ?>" name="title" /></td>
+                                                        <td>
+                                                            <textarea name="description" class="form-control col-12" id="" cols="50" rows="3"><?php echo $fp['description'] ?></textarea>
+                                                        </td>
+                                                        <td><input type="number" class="form-control " value="<?php echo $fp['price'] ?>" name="price" /></td>
+                                                        <td><input type="number" class="form-control " value="<?php echo $fp['qty'] ?>" name="qty" /></td>
+                                                        <td><button class="btn btn-success" type="submit">Save</button></td>
+                                                    </form>
+                                                    <td>
+                                                        <!-- <form action="deleteAproduct.php" method="post">
+                                                            <input type="text" class="form-control" name="id" value="<?php echo $fp['id'] ?>" />
+                                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                                        </form> -->
+                                                    </td>
                                                 </tr>
                                             <?php
                                             }
                                             ?>
+
                                             <!-- <tr>
                                                 <td>Cedric Kelly</td>
                                                 <td>Senior Javascript Developer</td>
@@ -111,7 +123,6 @@ require 'connection.php';
         <?php
         }
         ?>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->

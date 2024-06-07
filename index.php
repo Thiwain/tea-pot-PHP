@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="image">
-                                        <img src="<?php echo ($fetched_p['main_img']); ?>" style="height: 100px;" class="img-fluid" alt="Soup Bowl">
+                                        <img src="admin/<?php echo ($fetched_p['main_img']); ?>" style="height: 100px;" class="img-fluid" alt="Soup Bowl">
                                     </div>
                                 </div>
                             </a>

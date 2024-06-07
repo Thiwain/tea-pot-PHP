@@ -102,7 +102,7 @@
                  FROM `invoice_item` 
                  INNER JOIN `product` 
                  ON `invoice_item`.`product_id` = `product`.`id` 
-                 WHERE `invoice_id` = '954490'");
+                 WHERE `invoice_id` = '$in_id'");
 
                                             $total = null;
 

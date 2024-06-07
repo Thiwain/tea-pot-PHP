@@ -22,8 +22,8 @@ if (empty($rname) || empty($address) || empty($city) || empty($phone)) {
     $max = 1000000;
     $randomNumber = random_int($min, $max);
 
-    Database::iud("INSERT INTO `teapot_db`.`invoice` (`id`,`user_id`, `reciver_name`, `address`, `city`, `phone`, `order_sts_id`, `shipping_id`) 
-VALUES ('$randomNumber','$uid', '$rname', '$address', '$city', '$phone', 2, 1)");
+    Database::iud("INSERT INTO `teapot_db`.`invoice` (`id`,`user_id`, `reciver_name`, `address`, `city`, `phone`, `order_sts_id`, `shipping_id`, `date`) 
+VALUES ('$randomNumber','$uid', '$rname', '$address', '$city', '$phone', 2, 1, CURDATE())");
 
     $cart_rs = Database::search("SELECT * FROM `cart` WHERE `user_id` = '$uid'");
 

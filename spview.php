@@ -42,7 +42,7 @@ $p_data = $p_details->fetch_assoc();
                     ?>
 
                         <div class="col-6 mb-3">
-                            <img src="<?php echo ($p_img_data['url']); ?>" class="img-fluid" alt="Product Image 1">
+                            <img src="admin/<?php echo ($p_img_data['url']); ?>" class="img-fluid" alt="Product Image 1">
                         </div>
 
                     <?php
